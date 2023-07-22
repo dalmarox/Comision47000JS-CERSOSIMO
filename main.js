@@ -42,7 +42,7 @@ if (pregunta === "si") {
     prompt("Ingrese cantidad de comprimidos en una caja")
   );
   console.log(comprimidos);
-  alert("Cada caja tiene" + " " + comprimidos);
+  alert("Cada caja tiene" + " " + comprimidos + "comprimidos");
   
   alert(
     "En una caja tienes" +
@@ -51,17 +51,15 @@ if (pregunta === "si") {
       " " +
       "mg"
   );
-
-
-} else if (pregunta != "no") {
-  alert("continua en opción 2");
-  console.log("Opcion 2");
-} else if (pregunta != "no") {
-  alert("¿Qué fármaco recetó el médico?");
-  console.log(medicamento);
-  alert(medicamento);
+}
+   else if (pregunta != "no") {
+   let mililitros = parseFloat(prompt("¿Cuántos mililitros tiene el frasco?"));
+   console.log(mililitros);
+   alert(" Cada frasco tiene" + " " + mililitros + " " + "mililitros");
+  
 }
 
+ 
 //4) Turno en la farmacia
 let turno = prompt("¿Quiere sacar un turno para una consulta?");
 if (turno ==="si") {
@@ -69,11 +67,13 @@ if (turno ==="si") {
 alert("complete sus datos");  
 for (let turno = 1; turno <= 3; turno++) {
     let apellido = prompt("Ingrese su Apellido y Nombre");
-    alert(`turno ${turno} : ${apellido}`);
+    alert(`turno ${turno} : ${apellido}`); 
+    
   }
-  alert(" Se acabaron los turnos ");
-}else if(turno !="no") {
-    alert("Su consulta finalizó");
+  
+}
+ while(turno ==="si") {
+    turno = prompt("¿Quiere sacar un turno para una consulta?");
 }
 
 
