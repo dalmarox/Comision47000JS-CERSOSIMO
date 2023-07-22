@@ -29,7 +29,9 @@ console.log(consulta);
 //2) Cálculos de dosis
 
 let pregunta = prompt("¿Tu medicación es en comprimidos?").toLowerCase();
-if (pregunta === "si") {
+
+switch (pregunta){
+ case"si":
   alert("Continua con los cálculos");
   let medicamento = prompt("¿Qué fármaco te recetó el médico");
   console.log(medicamento);
@@ -52,11 +54,18 @@ if (pregunta === "si") {
       "mg"
   );
 }
-   else if (pregunta != "no") {
+  switch (pregunta){
+   case ("no"):
+   let medicamento = prompt("¿Qué fármaco te recetó el médico?");
+   console.log(medicamento);
+   alert(medicamento);
    let mililitros = parseFloat(prompt("¿Cuántos mililitros tiene el frasco?"));
    console.log(mililitros);
-   alert(" Cada frasco tiene" + " " + mililitros + " " + "mililitros");
-  
+   alert(" Cada frasco tiene" + " " + mililitros + " " + "ml"); 
+   let miligramos = parseFloat(prompt("¿Cuántos miligramos de fármaco tiene el frasco"));
+   console.log(miligramos);
+   alert("Tiene"+" " + miligramos +" "+ "mg" + " " + "en el frasco"); 
+   break;
 }
 
  
@@ -70,11 +79,10 @@ for (let turno = 1; turno <= 3; turno++) {
     alert(`turno ${turno} : ${apellido}`); 
     
   }
+alert(" Se acabaron los turnos");
+}
   
-}
- while(turno ==="si") {
-    turno = prompt("¿Quiere sacar un turno para una consulta?");
-}
+
 
 
 //5)
