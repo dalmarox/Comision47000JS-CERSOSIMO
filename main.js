@@ -2,14 +2,20 @@
 
 //1) Página para registrarse
 
+function identificarUsuarios(){
 let nombre = prompt("Ingrese su nombre");
 let apellido = prompt("Ingrese su apellido");
-//console.log(apellido);
+
 if (nombre != "" && apellido != "") {
   alert("Hola" + " " + nombre + " " + apellido);
 } else {
   alert("El nombre y el apellido deben ser ingresados");
 }
+
+}
+identificarUsuarios();
+
+function identificarRegistrar(){
 
 let email = prompt("Ingrese su email");
 console.log(email);
@@ -24,26 +30,43 @@ console.log(codigoPostal);
 alert("CP" + " " + codigoPostal);
 let contraseña = prompt("contraseña");
 console.log(contraseña);
+
+
+consultar();
+}
+function consultar(){
 let consulta = prompt("Deja su consulta");
 console.log(consulta);
 
-//2) Cálculos de dosis- Esto va a la página "Arma tu pastillero"
+pedirTurno();
 
-let foto = prompt("Tomar foto");
-console.log(foto);
-alert(foto);
+}
+let turno = prompt("¿Quiere sacar un turno para una consulta?");
+function pedirTurno(){
+if (turno === "si") {
+  console.log(turno);
+  alert("complete sus datos");
+  for (let turno = 1; turno <= 3; turno++) {
+    let apellido = prompt("Ingrese su Apellido y Nombre");
+    alert(`turno ${turno} : ${apellido}`);
+}
+}
+alert("Se acabaron los turnos");
+}
+pedirTurno();
+
+identificarRegistrar();
+
+//2) Cálculos de dosis- Esto va a la página "Arma tu pastillero"
 
 let pregunta = prompt("¿Tu medicación es en comprimidos? Responder SI O NO").toLowerCase();
 
 switch (pregunta) {
   case "si":
-    alert("Continua con los cálculos");
-    let medicamento = prompt("¿Qué fármaco te recetó el médico");
-    console.log(medicamento);
-    alert(medicamento);
-
-
-
+    
+    let remedio = prompt("¿Qué fármaco te recetó el médico");
+    console.log(remedio);
+    alert(remedio);
     let miligramos = parseFloat(
       prompt("¿Cuántos miligramos tiene un comprimido")
     );
@@ -55,7 +78,7 @@ switch (pregunta) {
     );
     console.log(comprimidos);
     alert("Cada caja tiene" + " " + comprimidos + "comprimidos");
-
+    
     alert(
       "En una caja tienes" +
         " " +
@@ -63,15 +86,8 @@ switch (pregunta) {
         " " +
         "mg"
     );
-   /*let entrada=prompt("¿cuántas veces al día su médico le indicó tomar la medicación");
-     while (entrada !=ESC);{
-      alert(`Se ingresó ${entrada}`);
-      entrada=prompt("Ingrese un dato");
-     }*/
+    break;
     
-}
-  
-  switch (pregunta) { 
   case "no":
     let medicamento = prompt("¿Qué fármaco te recetó el médico?");
     console.log(medicamento);
@@ -96,24 +112,29 @@ switch (pregunta) {
     console.log(vasitoMg);
     alert("En 5 ml hay"+" "+ vasitoMg + " " + "mg");
     
+    function calculo(pesoPersona, dosis, vasitoMg){
+      console.log(((pesoPersona*dosis)/3)*5/vasitoMg);
+      }
+      calculo(pesoPersona, dosis, vasitoMg);
+    
    
-    const calculo = (pesoPersona, dosis, vasitoMg) => ((pesoPersona*dosis)/3 * 5) /vasitoMg;
+    //const calculo = (pesoPersona, dosis, vasitoMg) => ((pesoPersona*dosis)/3 * 5) /vasitoMg;
      
     alert("La persona tomará" +" "+ calculo +" "+  "ml");
+    break;
   }
 
-//4 ) Turno en la farmacia
-let turno = prompt("¿Quiere sacar un turno para una consulta?");
+//let turno = prompt("¿Quiere sacar un turno para una consulta?");
+
+/*function turno(){
+
 if (turno === "si") {
   console.log(turno);
   alert("complete sus datos");
   for (let turno = 1; turno <= 3; turno++) {
     let apellido = prompt("Ingrese su Apellido y Nombre");
     alert(`turno ${turno} : ${apellido}`);
-
 } 
-  alert("Se acabaron los turnos")
 }
-
-
-
+  alert("Se acabaron los turnos")
+}*/
