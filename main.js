@@ -109,4 +109,15 @@ switch (pregunta) {
     );
     console.log(vasitoMg);
     alert("En 5 ml hay" + " " + vasitoMg + " " + "mg");
-}
+   
+    let x = reglaTres();
+
+    function reglaTres(dosis, pesoPersona, vasitoMg) {
+      return ((dosis*pesoPersona)/3 * 5)/vasitoMg;
+    }
+    reglaTres(x);
+    console.log(x);
+    alert("el resultado es" +" "+ x);
+    
+    }    
+
