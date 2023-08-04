@@ -64,6 +64,7 @@ switch (pregunta) {
     let remedio = prompt("¿Qué fármaco te recetó el médico");
     console.log(remedio);
     alert(remedio);
+    
     let miligramos = parseFloat(
       prompt("¿Cuántos miligramos tiene un comprimido")
     );
@@ -74,15 +75,18 @@ switch (pregunta) {
       prompt("Ingrese cantidad de comprimidos en una caja")
     );
     console.log(comprimidos);
-    alert("Cada caja tiene" + " " + comprimidos + "comprimidos");
+    alert("Cada caja tiene" + " " + comprimidos +" " + "comprimidos");
 
-    alert(
-      "En una caja tienes" +
-        " " +
-        Number(miligramos) * Number(comprimidos) +
-        " " +
-        "mg"
-    );
+    let y = multiplicacion (miligramos, comprimidos, remedio);
+    function multiplicacion (miligramos, comprimidos) {
+      return miligramos*comprimidos;
+    }
+    multiplicacion(y);
+    console.log(y);
+    alert("En una caja tienes"+ " "+ y + " "+ "mg de " + remedio);
+
+
+    
     break;
 
   case "no":
@@ -109,15 +113,14 @@ switch (pregunta) {
     );
     console.log(vasitoMg);
     alert("En 5 ml hay" + " " + vasitoMg + " " + "mg");
-   
-    let x = reglaTres();
 
-    function reglaTres(dosis, pesoPersona, vasitoMg) {
+    let x = reglaTres(dosis, pesoPersona, vasitoMg, medicamento); // Pasar los argumentos necesarios a la función
+
+    function reglaTres(dosis, pesoPersona, vasitoMg, medicamento) {
       return ((dosis*pesoPersona)/3 * 5)/vasitoMg;
     }
     reglaTres(x);
     console.log(x);
-    alert("el resultado es" +" "+ x);
-    
+    alert("el resultado es" +" "+ x +" "+ "ml de" +" "+ medicamento) ;
     }    
 
