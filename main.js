@@ -44,26 +44,30 @@ function pedirTurno() {
     alert("complete sus datos");
     for (let turno = 1; turno <= 3; turno++) {
       let apellido = prompt("Ingrese su Apellido y Nombre");
-      alert(`turno ${turno} : ${apellido}`);
+      alert(`turno ${turno} : ${apellido}`+ " " + "tienes"+ " "+ (turno-1)+ " "+ "personas antes");
     }
     pedirTurno();
+  
   }
   alert("Se acabaron los turnos");
+  
 }
 
 identificarRegistrar();
 
-//2) Cálculos de dosis- Esto va a la página "Arma tu pastillero"
+let remedio=prompt("Ingresa el nombre del medicaamento, si quieres salir escribe ESC").toLowerCase();
+while(remedio !="ESC"){
+  console.log( "Ingresaste" +" "+ remedio);
+remedio=prompt("Ingresa el nombre del fármaco o  ESC para salir");
+
 
 let pregunta = prompt(
   "¿Tu medicación es en comprimidos? Responder SI O NO"
 ).toLowerCase();
 
 switch (pregunta) {
+  
   case "si":
-    let remedio = prompt("¿Qué fármaco te recetó el médico");
-    console.log(remedio);
-    alert(remedio);
     
     let miligramos = parseFloat(
       prompt("¿Cuántos miligramos tiene un comprimido")
@@ -84,10 +88,9 @@ switch (pregunta) {
     multiplicacion(y);
     console.log(y);
     alert("En una caja tienes"+ " "+ y + " "+ "mg de " + remedio);
-
-
-    
+  
     break;
+    
 
   case "no":
     let medicamento = prompt("¿Qué fármaco te recetó el médico?");
@@ -122,5 +125,10 @@ switch (pregunta) {
     reglaTres(x);
     console.log(x);
     alert("el resultado es" +" "+ x +" "+ "ml de" +" "+ medicamento) ;
-    }    
-
+    
+    break;
+    default:
+      console.log("Fin");
+    break;
+    
+  }}
