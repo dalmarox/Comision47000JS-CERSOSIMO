@@ -26,8 +26,27 @@ function identificarRegistrar() {
   let codigoPostal = parseInt(prompt("Código Postal"));
   console.log(codigoPostal);
   alert("CP" + " " + codigoPostal);
-  let contraseña = prompt("contraseña");
-  console.log(contraseña);
+  /*let contraseña = prompt("contraseña");
+  console.log(contraseña);*/
+
+  /*let contraseña= "1234";
+  function login(){
+    let ingresar=false;
+  
+    for (let i = 2; i>= 0 ; i--){
+       let userContraseña=prompt("Ingresa la contraseña. Tenés "+(i+1)+ " "+  "Oportunidades");
+       if(userContraseña===contraseña){
+        alert("Ingreso exitoso");
+        ingresar=true;
+        break;
+       }else{
+        alert("Error.Te quedan" +" "+ i + "intentos");
+       }
+    }
+   return ingresar;
+  }
+  console.log(login());*/
+
 
   consultar();
 }
@@ -148,3 +167,78 @@ function ingresoMedicamento() {
   }
 }
 ingresoMedicamento();
+//para acceder al pastillero primero registrarse
+
+let contraseña= "1234";
+function login(){
+  let ingresar=false;
+
+  for (let i = 2; i>= 0 ; i--){
+     let userContraseña=prompt("Ingresa la contraseña. Tenés "+(i+1)+ " "+  "Oportunidades");
+     if(userContraseña===contraseña){
+      alert("Ingreso exitoso");
+      ingresar=true;
+      break;
+     }else{
+      alert("Error.Te quedan" +" "+ i + "intentos");
+     }
+  }
+ return ingresar;
+} 
+console.log(login());
+
+let exito=login();
+if(exito){
+  //accedemos al pastillero, abre opciones dias de la semana
+ function Pastillero (remedio,opcion, horario,){
+   
+      this.remedio= remedio;
+      this.opcion = opcion;
+      this.horario = horario;
+ }
+  //const pastillero =new Pastillero (remedio, opcion, horario);
+  let remedio = prompt("Ingresa el nombre del medicamento a ingresar en el pastillero");
+  let opcion = prompt("Elegí una opción:\n1-Lunes. \n2-Martes. \n3 - Miércoles. \n4 - Jueves. \n5 - Viernes. \n6 - Sábado. \n7 - Domingo. \n Presiona X para finalizar.");   
+  let horario = parseInt(prompt("Ingresa la hora a tomar el medicamento"));
+
+  console.log(opcion);
+  
+  console.log(pastillero);
+
+  while (opcion != "X"){
+    console.log(remedio);
+    alert("El medicamento ingresado el día"+" "+ opcion +" "+ "es:" +" "+ remedio + " " + "y lo tiene que tomar a las"+" " + horario);
+   switch(opcion){
+    case "1":
+      alert("Ingreso"+ ""+ remedio);
+      break;
+    case "2":
+      alert("Ingreso"+ " " + remedio);
+      break;
+    case "3":
+      alert("Ingreso" +" " + remedio);
+      break;
+    case "4":
+      alert("Ingreso"+" "+ remedio);
+      break;
+    case"5":
+      alert("Ingreso"+" " + remedio);
+      break;
+    case "6":
+      alert("Ingreso" +" "+ remedio);
+      break;
+    case "7":
+      alert("Ingreso" + " " + remedio);
+      break;
+    default:
+      alert("No válida");
+      break;  
+   }
+     
+  opcion = prompt("Elegí una opción:\n1-Lunes. \n2-Martes. \n3 - Miércoles. \n4 - Jueves. \n5 - Viernes. \n6 - Sábado. \n7 - Domingo. \n Presiona X para finalizar.");
+  }
+}
+const pastillero =new Pastillero (remedio, opcion, horario);
+
+
+
