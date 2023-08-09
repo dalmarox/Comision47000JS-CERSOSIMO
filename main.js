@@ -188,26 +188,33 @@ function login(){
 console.log(login());
 
 let exito=login();
-if(exito){
-  //accedemos al pastillero, abre opciones dias de la semana
- function Pastillero (remedio,opcion, horario,){
-   
-      this.remedio= remedio;
-      this.opcion = opcion;
+
+ class Pastillero {
+    constructor(remedio, opcion, horario) {
+
+      this.remedio = remedio;
+       this.opcion = opcion;
       this.horario = horario;
+    }
  }
+
+if(exito){
+   crearPastillero();
+
+  }
   //const pastillero =new Pastillero (remedio, opcion, horario);
+
+  const arrayPastilleros=[]; 
+
+function crearPastillero(){
+  let opcion = prompt("Elegí una opción:\n1-Lunes. \n2-Martes. \n3 - Miércoles. \n4 - Jueves. \n5 - Viernes. \n6 - Sábado. \n7 - Domingo. \n Presiona X para finalizar."); 
   let remedio = prompt("Ingresa el nombre del medicamento a ingresar en el pastillero");
-  let opcion = prompt("Elegí una opción:\n1-Lunes. \n2-Martes. \n3 - Miércoles. \n4 - Jueves. \n5 - Viernes. \n6 - Sábado. \n7 - Domingo. \n Presiona X para finalizar.");   
   let horario = parseInt(prompt("Ingresa la hora a tomar el medicamento"));
 
   console.log(opcion);
-  
-  console.log(pastillero);
+  console.log(remedio);
 
-  while (opcion != "X"){
-    console.log(remedio);
-    alert("El medicamento ingresado el día"+" "+ opcion +" "+ "es:" +" "+ remedio + " " + "y lo tiene que tomar a las"+" " + horario);
+  alert("El medicamento ingresado el día"+" "+ opcion +" "+ "es:" +" "+ remedio + " " + "y lo tiene que tomar a las"+" " + horario);
    switch(opcion){
     case "1":
       alert("Ingreso"+ ""+ remedio);
@@ -234,11 +241,27 @@ if(exito){
       alert("No válida");
       break;  
    }
+     const ingresarOtro= confirm("Desea ingresar otro medicamento?");
      
-  opcion = prompt("Elegí una opción:\n1-Lunes. \n2-Martes. \n3 - Miércoles. \n4 - Jueves. \n5 - Viernes. \n6 - Sábado. \n7 - Domingo. \n Presiona X para finalizar.");
-  }
-}
+     if(ingresarOtro){
+      crearPastillero();
+       } else { 
+      } 
+
+//opcion = prompt("Elegí una opción:\n1-Lunes. \n2-Martes. \n3 - Miércoles. \n4 - Jueves. \n5 - Viernes. \n6 - Sábado. \n7 - Domingo. \n Presiona X para finalizar.");
+  
+
 const pastillero =new Pastillero (remedio, opcion, horario);
 
+arrayPastilleros.push(pastillero);
 
+}
+
+class presionArterial {
+  constructor (valor, dia, horario){
+   this.valor= valor;
+   this.dia= dia;
+   this.horario= horario;
+}
+}
 
