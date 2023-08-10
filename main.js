@@ -202,7 +202,7 @@ let exito=login();
 if(exito){
    crearPastillero();
 
-  }
+  }else{ }
   const pastillero =new Pastillero (remedio, opcion, horario, img);
 
   const arrayPastilleros=[]; 
@@ -246,7 +246,7 @@ function crearPastillero(){
      
      if(ingresarOtro){
       crearPastillero();
-       } else {  
+       } else {registrarPresion()
       } 
 
 //opcion = prompt("Elegí una opción:\n1-Lunes. \n2-Martes. \n3 - Miércoles. \n4 - Jueves. \n5 - Viernes. \n6 - Sábado. \n7 - Domingo. \n Presiona X para finalizar.");
@@ -270,7 +270,7 @@ class presionArterial {
 }
 if (exito){
   registrarPresion();
-}else{ exito=false
+}else{ 
   
 }
 const arrayPresionArterial=[];
