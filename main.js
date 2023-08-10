@@ -195,6 +195,7 @@ let exito=login();
       this.remedio = remedio;
        this.opcion = opcion;
       this.horario = horario;
+      this.img = img;
     }
  }
 
@@ -202,7 +203,7 @@ if(exito){
    crearPastillero();
 
   }
-  //const pastillero =new Pastillero (remedio, opcion, horario);
+  const pastillero =new Pastillero (remedio, opcion, horario, img);
 
   const arrayPastilleros=[]; 
 
@@ -245,7 +246,7 @@ function crearPastillero(){
      
      if(ingresarOtro){
       crearPastillero();
-       } else { 
+       } else {  
       } 
 
 //opcion = prompt("Elegí una opción:\n1-Lunes. \n2-Martes. \n3 - Miércoles. \n4 - Jueves. \n5 - Viernes. \n6 - Sábado. \n7 - Domingo. \n Presiona X para finalizar.");
@@ -258,10 +259,65 @@ arrayPastilleros.push(pastillero);
 }
 
 class presionArterial {
-  constructor (valor, dia, horario){
-   this.valor= valor;
-   this.dia= dia;
-   this.horario= horario;
+  constructor (valorMax, _ValorMin, dia, horarioMañana, horarioTarde, horarioNoche){
+   this.dia= dia; 
+   this.valorMax= valorMax;
+   this.valorMin= valorMin;
+   this.horarioMañana= horarioMañana;
+   this.horarioTarde= horarioTarde;
+   this.horarioNoche= horarioNoche;
 }
 }
+if (exito){
+  registrarPresion();
+}else{ exito=false
+  
+}
+const arrayPresionArterial=[];
 
+class registrarPresion {
+  constructor() {
+
+    let dia = prompt("Elegí una opción:\n1-Lunes. \n2-Martes. \n3 - Miércoles. \n4 - Jueves. \n5 - Viernes. \n6 - Sábado. \n7 - Domingo. \n Presiona X para finalizar.");
+    let valorMax = parseFloat(prompt("Indica el valor de la presión arterial máxima"));
+    let valorMin = parseFloat(prompt("Indica el valor de la presión arterial minima"));
+    let horario = prompt("Indica el momento del día en que se tomó la presión arterial: \n1-Mañana. \n2-Tarde. \n3-Noche. \n Presiona X para finalizar.").toLowerCase();
+    console.table(dia);
+    console.table(valorMax);
+    console.table(valorMin);
+    console.table(horario);
+
+    alert("el registro de presión arterial el" + " " + dia + "a las" + horario + "es" + " " + valorMax + "- " + valorMin + "" + "mm de Hg");
+    switch (dia) {
+      case "1":
+        alert("Ingreso" + "" + valorMax - valorMin + "" + horario);
+        break;
+      case "2":
+        alert("Ingreso" + " " + valorMax - valorMin + "" + horario);
+        break;
+      case "3":
+        alert("Ingreso" + " " + valorMax - valorMin + " " + horario);
+        break;
+      case "4":
+        alert("Ingreso" + " " + valorMax - valorMin + "" + horario);
+        break;
+      case "5":
+        alert("Ingreso" + " " + valorMax - valorMin + "" + horario);
+        break;
+      case "6":
+        alert("Ingreso" + " " + valorMax - valorMin + " " + "mm de Hg" + "a la" + " " + horario);
+        break;
+      case "7": +alert("Ingreso" + " " + remedio);
+        break;
+      default:
+        alert("No válida");
+        break;
+    }
+    const registrarOtraPresion = confirm("Desea ingresar otro registro de presión arterial?");
+    if (registrarOtraPresion) {
+      registrarPresion();
+    } else {
+    }
+    const presionArterial = new presionArterial(dia, valorMax, valorMin, horario);
+  }
+}
