@@ -26,27 +26,6 @@ function identificarRegistrar() {
   let codigoPostal = parseInt(prompt("Código Postal"));
   console.log(codigoPostal);
   alert("CP" + " " + codigoPostal);
-  /*let contraseña = prompt("contraseña");
-  console.log(contraseña);*/
-
-  /*let contraseña= "1234";
-  function login(){
-    let ingresar=false;
-  
-    for (let i = 2; i>= 0 ; i--){
-       let userContraseña=prompt("Ingresa la contraseña. Tenés "+(i+1)+ " "+  "Oportunidades");
-       if(userContraseña===contraseña){
-        alert("Ingreso exitoso");
-        ingresar=true;
-        break;
-       }else{
-        alert("Error.Te quedan" +" "+ i + "intentos");
-       }
-    }
-   return ingresar;
-  }
-  console.log(login());*/
-
 
   consultar();
 }
@@ -167,157 +146,288 @@ function ingresoMedicamento() {
   }
 }
 ingresoMedicamento();
-//para acceder al pastillero primero registrarse
+ 
 
-let contraseña= "1234";
-function login(){
-  let ingresar=false;
+let contraseña = "1234";
+function login() {
+  let ingresar = false;
 
-  for (let i = 2; i>= 0 ; i--){
-     let userContraseña=prompt("Ingresa la contraseña. Tenés "+(i+1)+ " "+  "Oportunidades");
-     if(userContraseña===contraseña){
+  for (let i = 2; i >= 0; i--) {
+    let userContraseña = prompt(
+      "Ingresa la contraseña. Tenés " + (i + 1) + " " + "Oportunidades"
+    );
+    if (userContraseña === contraseña) {
       alert("Ingreso exitoso");
-      ingresar=true;
+      ingresar = true;
       break;
-     }else{
-      alert("Error.Te quedan" +" "+ i + "intentos");
-     }
+    } else {
+      alert("Error.Te quedan" + " " + i + "intentos");
+    }
   }
- return ingresar;
-} 
+  return ingresar;
+}
 console.log(login());
 
-let exito=login();
+let exito = login();
 
- class Pastillero {
-    constructor(remedio, opcion, horario) {
+class Pastillero {
+  constructor(remedio, opcion, horario) {
+    this.remedio = remedio;
+    this.opcion = opcion;
+    this.horario = horario;
+    this.img = img;
+  }
+}
 
-      this.remedio = remedio;
-       this.opcion = opcion;
-      this.horario = horario;
-      this.img = img;
-    }
- }
+if (exito) {
+  crearPastillero();
+} else {
+}
+const pastillero = new Pastillero(remedio, opcion, horario, img);
 
-if(exito){
-   crearPastillero();
+const arrayPastilleros = [];
 
-  }else{ }
-  const pastillero =new Pastillero (remedio, opcion, horario, img);
-
-  const arrayPastilleros=[]; 
-
-function crearPastillero(){
-  let opcion = prompt("Elegí una opción:\n1-Lunes. \n2-Martes. \n3 - Miércoles. \n4 - Jueves. \n5 - Viernes. \n6 - Sábado. \n7 - Domingo. \n Presiona X para finalizar."); 
-  let remedio = prompt("Ingresa el nombre del medicamento a ingresar en el pastillero");
+function crearPastillero() {
+  let opcion = prompt(
+    "Elegí una opción:\n1-Lunes. \n2-Martes. \n3 - Miércoles. \n4 - Jueves. \n5 - Viernes. \n6 - Sábado. \n7 - Domingo. \n Presiona X para finalizar."
+  );
+  let remedio = prompt(
+    "Ingresa el nombre del medicamento a ingresar en el pastillero"
+  );
   let horario = parseInt(prompt("Ingresa la hora a tomar el medicamento"));
 
   console.log(opcion);
   console.log(remedio);
 
-  alert("El medicamento ingresado el día"+" "+ opcion +" "+ "es:" +" "+ remedio + " " + "y lo tiene que tomar a las"+" " + horario);
-   switch(opcion){
+  alert(
+    "El medicamento ingresado el día" +
+      " " +
+      opcion +
+      " " +
+      "es:" +
+      " " +
+      remedio +
+      " " +
+      "y lo tiene que tomar a las" +
+      " " +
+      horario
+  );
+  switch (opcion) {
     case "1":
-      alert("Ingreso"+ ""+ remedio);
+      alert("Ingreso" + "" + remedio);
       break;
     case "2":
-      alert("Ingreso"+ " " + remedio);
+      alert("Ingreso" + " " + remedio);
       break;
     case "3":
-      alert("Ingreso" +" " + remedio);
+      alert("Ingreso" + " " + remedio);
       break;
     case "4":
-      alert("Ingreso"+" "+ remedio);
+      alert("Ingreso" + " " + remedio);
       break;
-    case"5":
-      alert("Ingreso"+" " + remedio);
+    case "5":
+      alert("Ingreso" + " " + remedio);
       break;
     case "6":
-      alert("Ingreso" +" "+ remedio);
+      alert("Ingreso" + " " + remedio);
       break;
     case "7":
       alert("Ingreso" + " " + remedio);
       break;
     default:
       alert("No válida");
-      break;  
-   }
-     const ingresarOtro= confirm("Desea ingresar otro medicamento?");
-     
-     if(ingresarOtro){
-      crearPastillero();
-       } else {registrarPresion()
-      } 
+      break;
+  }
+  const ingresarOtro = confirm("Desea ingresar otro medicamento?");
 
-//opcion = prompt("Elegí una opción:\n1-Lunes. \n2-Martes. \n3 - Miércoles. \n4 - Jueves. \n5 - Viernes. \n6 - Sábado. \n7 - Domingo. \n Presiona X para finalizar.");
-  
+  if (ingresarOtro) {
+    crearPastillero();
+  } else {
+    registrarPresion();
+  }
 
-const pastillero =new Pastillero (remedio, opcion, horario);
 
-arrayPastilleros.push(pastillero);
 
+  const pastillero = new Pastillero(remedio, opcion, horario);
+
+  arrayPastilleros.push(pastillero);
+  console.log(arrayPastilleros);
 }
 
 class presionArterial {
-  constructor (valorMax, _ValorMin, dia, horarioMañana, horarioTarde, horarioNoche){
-   this.dia= dia; 
-   this.valorMax= valorMax;
-   this.valorMin= valorMin;
-   this.horarioMañana= horarioMañana;
-   this.horarioTarde= horarioTarde;
-   this.horarioNoche= horarioNoche;
-}
-}
-if (exito){
-  registrarPresion();
-}else{ 
-  
-}
-const arrayPresionArterial=[];
-
-class registrarPresion {
-  constructor() {
-
-    let dia = prompt("Elegí una opción:\n1-Lunes. \n2-Martes. \n3 - Miércoles. \n4 - Jueves. \n5 - Viernes. \n6 - Sábado. \n7 - Domingo. \n Presiona X para finalizar.");
-    let valorMax = parseFloat(prompt("Indica el valor de la presión arterial máxima"));
-    let valorMin = parseFloat(prompt("Indica el valor de la presión arterial minima"));
-    let horario = prompt("Indica el momento del día en que se tomó la presión arterial: \n1-Mañana. \n2-Tarde. \n3-Noche. \n Presiona X para finalizar.").toLowerCase();
-    console.table(dia);
-    console.table(valorMax);
-    console.table(valorMin);
-    console.table(horario);
-
-    alert("el registro de presión arterial el" + " " + dia + "a las" + horario + "es" + " " + valorMax + "- " + valorMin + "" + "mm de Hg");
-    switch (dia) {
-      case "1":
-        alert("Ingreso" + "" + valorMax - valorMin + "" + horario);
-        break;
-      case "2":
-        alert("Ingreso" + " " + valorMax - valorMin + "" + horario);
-        break;
-      case "3":
-        alert("Ingreso" + " " + valorMax - valorMin + " " + horario);
-        break;
-      case "4":
-        alert("Ingreso" + " " + valorMax - valorMin + "" + horario);
-        break;
-      case "5":
-        alert("Ingreso" + " " + valorMax - valorMin + "" + horario);
-        break;
-      case "6":
-        alert("Ingreso" + " " + valorMax - valorMin + " " + "mm de Hg" + "a la" + " " + horario);
-        break;
-      case "7": +alert("Ingreso" + " " + remedio);
-        break;
-      default:
-        alert("No válida");
-        break;
-    }
-    const registrarOtraPresion = confirm("Desea ingresar otro registro de presión arterial?");
-    if (registrarOtraPresion) {
-      registrarPresion();
-    } else {
-    }
-    const presionArterial = new presionArterial(dia, valorMax, valorMin, horario);
+  constructor(
+    valorMax,
+    _ValorMin,
+    dia,
+    horarioMañana,
+    horarioTarde,
+    horarioNoche
+  ) {
+    this.dia = dia;
+    this.valorMax = valorMax;
+    this.valorMin = valorMin;
+    this.horarioMañana = horarioMañana;
+    this.horarioTarde = horarioTarde;
+    this.horarioNoche = horarioNoche;
   }
+}
+if (exito) {
+  registrarPresion();
+} else {
+}
+const arrayPresionArterial = [];
+
+function registrarPresion() {
+  let dia = prompt(
+    "Elegí una opción:Lunes. Martes. Miércoles. Jueves. Viernes. Sábado. Domingo. \n Presiona X para finalizar."
+  );
+  let valorMax = parseFloat(
+    prompt("Indica el valor de la presión arterial máxima")
+  );
+  let valorMin = parseFloat(
+    prompt("Indica el valor de la presión arterial minima")
+  );
+  let horario = prompt(
+    "Indica el momento del día en que se tomó la presión arterial: Mañana. Tarde. Noche. \n Presiona X para finalizar."
+  ).toLowerCase();
+  console.table(dia);
+  console.table(valorMax);
+  console.table(valorMin);
+  console.table(horario);
+
+  alert(
+    "el registro de presión arterial el" +
+      " " +
+      dia +
+      " " +
+      "a la" +
+      " " +
+      horario +
+      "es" +
+      " " +
+      valorMax +
+      "- " +
+      valorMin +
+      " " +
+      "mm Hg"
+  );
+  switch (dia) {
+    case "1":
+      alert(
+        "Su presión es:" +
+          " " +
+          valorMax -
+          valorMin +
+          " " +
+          "mm de Hg" +
+          "a la" +
+          " " +
+          horario
+      );
+      break;
+    case "2":
+      alert(
+        "Su presión es:" +
+          " " +
+          valorMax -
+          valorMin +
+          " " +
+          "mm de Hg" +
+          "a la" +
+          " " +
+          horario
+      );
+      break;
+    case "3":
+      alert(
+        "Su presión es:" +
+          " " +
+          valorMax -
+          valorMin +
+          " " +
+          "mm de Hg" +
+          "a la" +
+          " " +
+          horario
+      );
+      break;
+    case "4":
+      alert(
+        "Su presión es:" +
+          " " +
+          valorMax -
+          valorMin +
+          " " +
+          "mm de Hg" +
+          "a la" +
+          " " +
+          horario
+      );
+      break;
+    case "5":
+      alert(
+        "Su presión es:" +
+          " " +
+          valorMax -
+          valorMin +
+          " " +
+          "mm de Hg" +
+          "a la" +
+          " " +
+          horario
+      );
+      break;
+    case "6":
+      alert(
+        "Su presión es:" +
+          " " +
+          valorMax -
+          valorMin +
+          " " +
+          "mm de Hg" +
+          "a la" +
+          " " +
+          horario
+      );
+      break;
+    case "7":
+      alert(
+        "Su presión es:" +
+          " " +
+          valorMax -
+          valorMin +
+          " " +
+          "mm de Hg" +
+          "a la" +
+          " " +
+          horario
+      );
+      break;
+    default:
+      alert("No válida");
+      break;
+  }
+  const registrarOtraPresion = confirm(
+    "Desea ingresar otro registro de presión arterial?"
+  );
+  if (registrarOtraPresion) {
+    registrarPresion();
+  } else {
+  }
+  const presionArterial = new presionArterial(dia, valorMax, valorMin, horario);
+  arrayPresionArterial.push(presionArterial);
+  console.table(presionArterial);
+  alert(
+    "Registro de presión arterial:" +
+      " " +
+      dia +
+      " " +
+      horario +
+      " " +
+      valorMax +
+      " " +
+      valorMin +
+      " " +
+      "mm Hg"
+  );
 }
